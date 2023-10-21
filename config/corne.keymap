@@ -7,10 +7,9 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-&lt {
-    bindings = <&mo>, <&tog>;
-
-    flavor = "hold-preferred";
+&mt {
+    tapping-term-ms = <220>;
+    flavor = "tap-preferred";
 };
 
 / {
@@ -19,14 +18,6 @@
     };
 
     behaviors {
-        lht: lht {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LHT";
-            bindings = <&mo>, <&tog>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
         capsht: capsht {
             compatible = "zmk,behavior-hold-tap";
             label = "CAPSHT";
@@ -35,6 +26,22 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
+        };
+        bckspc_del: bckspc_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BCKSPC_DEL";
+            bindings = <&kp BACKSPACE>, <&kp DEL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT|MOD_LSFT)>;
+        };
+        bckmo: bckmo {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BCKMO";
+            bindings = <&mo>, <&bckspc_del>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
         };
     };
 
@@ -49,10 +56,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&lht 3 3  &kp Q            &kp W           &kp F        &kp P     &kp B                 &kp J                  &kp L      &kp U               &kp Y           &kp SQT           &lht 3 3
-&lht 2 2  &mt A LEFT_META  &mt R LEFT_ALT  &mt LCTRL S  &kp T     &kp G                 &kp M                  &kp N      &mt RCTRL E         &mt LEFT_ALT I  &mt RIGHT_META O  &lht 2 2
-&lht 1 1  &kp Z            &kp X           &kp C        &kp D     &kp V                 &kp K                  &kp H      &kp COMMA           &kp DOT         &kp FSLH          &lht 1 1
-                                           &kp ESCAPE   &kp BSPC  &mt TAB LEFT_SHIFT    &mt ENTER RIGHT_SHIFT  &kp SPACE  &capsht CAPSLOCK 0
+&none  &kp Q            &kp W           &kp F        &kp P       &kp B                 &kp J                  &kp L        &kp U        &kp Y           &kp SQT           &none
+&none  &mt A LEFT_META  &mt R LEFT_ALT  &mt LCTRL S  &kp T       &kp G                 &kp M                  &kp N        &mt RCTRL E  &mt LEFT_ALT I  &mt RIGHT_META O  &none
+&none  &kp Z            &kp X           &kp C        &kp D       &kp V                 &kp K                  &kp H        &kp COMMA    &kp DOT         &kp FSLH          &none
+                                        &kp ESC      &bckmo 1 0  &mt LEFT_SHIFT TAB    &mt RIGHT_SHIFT ENTER  &lt 2 SPACE  &kp A
             >;
 
             label = "BAS";
@@ -66,10 +73,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&to 0  &kp EXCLAMATION   &kp AT_SIGN  &kp POUND              &kp DOLLAR       &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp ASTERISK   &kp TILDE       &kp QUESTION  &to 0
-&to 0  &kp LESS_THAN     &kp LBKT     &kp LEFT_PARENTHESIS   &kp LEFT_BRACE   &none          &none      &kp PIPE       &kp COLON      &kp MINUS       &kp PLUS      &to 0
-&to 0  &kp GREATER_THAN  &kp LBRC     &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &none          &none      &kp BACKSLASH  &kp SEMICOLON  &kp UNDERSCORE  &kp EQUAL     &to 0
-                                      &to 0                  &to 0            &to 0          &to 0      &to 0          &to 0
+&trans  &kp N1            &kp N2             &kp N3                 &kp N4           &kp N5       &kp N6         &kp N7     &kp N8         &kp N9          &kp N0     &trans
+&trans  &kp LESS_THAN     &kp LBKT           &kp LEFT_PARENTHESIS   &kp LEFT_BRACE   &kp SLASH    &kp BACKSLASH  &kp PIPE   &kp COLON      &kp MINUS       &kp PLUS   &trans
+&trans  &kp GREATER_THAN  &kp RIGHT_BRACKET  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp EXCL     &kp QUESTION   &kp TILDE  &kp SEMICOLON  &kp UNDERSCORE  &kp EQUAL  &trans
+                                             &trans                 &trans           &trans       &trans         &trans     &trans
             >;
 
             label = "SYM";
@@ -83,10 +90,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&to 0  &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3      &kp NUMBER_4      &kp N5              &kp NUMBER_6     &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9  &kp NUMBER_0     &to 0
-&to 0  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(NUMBER_5)    &none            &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &to 0
-&to 0  &kp LG(F1)        &kp LG(F2)        &kp LG(F3)        &kp LG(F4)        &kp LG(F5)          &none            &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &to 0
-                                           &none             &none             &kp LEFT_SHIFT      &kp RIGHT_SHIFT  &none           &none
+&trans  &kp LG(NUMBER_6)  &kp LG(N7)        &kp LG(N8)        &kp LG(N9)        &kp LG(N0)          &kp LG(TAB)    &kp LG(LEFT)    &kp LG(DOWN)    &kp LG(UP)    &kp LG(RIGHT)    &trans
+&trans  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(NUMBER_5)    &kp LG(F)      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
+&trans  &kp LG(F1)        &kp LG(F2)        &kp LG(F3)        &kp LG(F4)        &kp LG(F5)          &kp LG(SPACE)  &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans
+                                            &trans            &trans            &trans              &trans         &trans          &trans
             >;
 
             label = "NAV";
@@ -94,13 +101,22 @@
 
         FUNCTION_LAYER {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&none  &kp F1  &kp F2               &kp F3           &kp F4               &kp F5     &kp F6   &kp F7      &kp F8    &kp F9      &kp F10     &none
+&none  &none   &kp LS(PRINTSCREEN)  &kp PRINTSCREEN  &kp LA(PRINTSCREEN)  &kp F11    &kp F12  &kp K_PREV  &kp K_PP  &kp K_STOP  &kp K_NEXT  &none
+&none  &none   &none                &none            &none                &none      &none    &none       &none     &none       &none       &none
+                                    &trans           &trans               &trans     &trans   &trans      &trans
             >;
 
             label = "FUN";
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        FUNCTION_LAYER {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 };
