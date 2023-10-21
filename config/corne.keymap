@@ -18,6 +18,26 @@
         compatible = "zmk,combos";
     };
 
+    behaviors {
+        lht: lht {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LHT";
+            bindings = <&mo>, <&tog>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+        capsht: capsht {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CAPSHT";
+            bindings = <&kp>, <&caps_word>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -29,10 +49,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&mo 3  &kp Q            &kp W           &kp F        &kp P     &kp B                 &kp J                  &kp L      &kp U        &kp Y           &kp SQT           &mo 3
-&mo 2  &mt A LEFT_META  &mt R LEFT_ALT  &mt LCTRL S  &kp T     &kp G                 &kp M                  &kp N      &mt RCTRL E  &mt LEFT_ALT I  &mt RIGHT_META O  &mo 2
-&none  &kp Z            &kp X           &kp C        &kp D     &kp V                 &kp K                  &kp H      &kp COMMA    &kp DOT         &kp FSLH          &none
-                                        &kp ESCAPE   &kp BSPC  &mt TAB LEFT_SHIFT    &mt ENTER RIGHT_SHIFT  &kp SPACE  &caps_word
+&lht 3 3  &kp Q            &kp W           &kp F        &kp P     &kp B                 &kp J                  &kp L      &kp U               &kp Y           &kp SQT           &lht 3 3
+&lht 2 2  &mt A LEFT_META  &mt R LEFT_ALT  &mt LCTRL S  &kp T     &kp G                 &kp M                  &kp N      &mt RCTRL E         &mt LEFT_ALT I  &mt RIGHT_META O  &lht 2 2
+&lht 1 1  &kp Z            &kp X           &kp C        &kp D     &kp V                 &kp K                  &kp H      &kp COMMA           &kp DOT         &kp FSLH          &lht 1 1
+                                           &kp ESCAPE   &kp BSPC  &mt TAB LEFT_SHIFT    &mt ENTER RIGHT_SHIFT  &kp SPACE  &capsht CAPSLOCK 0
             >;
 
             label = "BAS";
@@ -63,10 +83,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&to 0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp NUMBER_6  &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9  &kp NUMBER_0     &to 0
-&to 0  &none         &none         &none         &none         &none     &none         &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &to 0
-&to 0  &none         &none         &none         &none         &none     &none         &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &to 0
-                                   &none         &none         &none     &none         &none           &none
+&to 0  &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3      &kp NUMBER_4      &kp N5              &kp NUMBER_6     &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9  &kp NUMBER_0     &to 0
+&to 0  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(NUMBER_5)    &none            &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &to 0
+&to 0  &kp LG(F1)        &kp LG(F2)        &kp LG(F3)        &kp LG(F4)        &kp LG(F5)          &none            &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &to 0
+                                           &none             &none             &kp LEFT_SHIFT      &kp RIGHT_SHIFT  &none           &none
             >;
 
             label = "NAV";
