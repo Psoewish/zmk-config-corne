@@ -56,10 +56,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q            &kp W           &kp F        &kp P       &kp B                 &kp J                  &kp L        &kp U        &kp Y           &kp SQT           &none
-&none  &mt A LEFT_META  &mt R LEFT_ALT  &mt LCTRL S  &kp T       &kp G                 &kp M                  &kp N        &mt RCTRL E  &mt LEFT_ALT I  &mt RIGHT_META O  &none
-&none  &kp Z            &kp X           &kp C        &kp D       &kp V                 &kp K                  &kp H        &kp COMMA    &kp DOT         &kp FSLH          &none
-                                        &kp ESC      &bckmo 1 0  &mt LEFT_SHIFT TAB    &mt RIGHT_SHIFT ENTER  &lt 2 SPACE  &kp A
+&none  &kp Q       &kp W       &kp F        &kp P       &kp B                 &kp J                  &kp L        &kp U        &kp Y           &kp SQT           &none
+&none  &mt LGUI A  &mt LALT R  &mt LCTRL S  &kp T       &kp G                 &kp M                  &kp N        &mt RCTRL E  &mt LEFT_ALT I  &mt RIGHT_META O  &none
+&none  &kp Z       &kp X       &kp C        &kp D       &kp V                 &kp K                  &kp H        &kp COMMA    &kp DOT         &kp FSLH          &none
+                               &kp ESC      &bckmo 1 0  &mt LEFT_SHIFT TAB    &mt RIGHT_SHIFT ENTER  &lt 2 SPACE  &kp A
             >;
 
             label = "BAS";
