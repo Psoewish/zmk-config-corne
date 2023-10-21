@@ -9,16 +9,13 @@
 
 &lt {
     bindings = <&mo>, <&tog>;
+
+    flavor = "hold-preferred";
 };
 
 / {
     combos {
         compatible = "zmk,combos";
-
-        CAPS-TOGGLE {
-            bindings = <&kp CAPS>;
-            key-positions = <18 17>;
-        };
     };
 
     keymap {
