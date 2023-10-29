@@ -50,7 +50,7 @@ ZMK_BEHAVIOR(lt_bs, hold_tap,
      flavor = "balanced";
      tapping-term-ms = <200>;
      quick-tap-ms = <175>;
-     bindings = <&mo>, &bs_morph;
+     bindings = <&mo>, <&bs_morph>;
 )
 
 ZMK_BEHAVIOR(smart_shft, mod_morph,
