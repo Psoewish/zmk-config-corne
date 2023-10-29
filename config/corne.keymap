@@ -1,122 +1,57 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
+// Import necessary components
+// Core ZMK stuff
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+// Nodefree helper modules
+#include "../zmk-nodefree-config/helper.h"
+#include "../zkm-nodefree-config/keypos_def/keypos_42keys.h"
+// custom additions
+#include "combos.dtsi"
+#include "behaviors.dtsi"
 
-&mt {
-    tapping-term-ms = <220>;
-    flavor = "tap-preferred";
-};
+// Layer aliases
+#define BAS 0
+#define NUM 1
+#define NAV 2
+#define SYS 3
 
-/ {
-    combos {
-        compatible = "zmk,combos";
-    };
+// Special key aliases
+#define ??? &none
+#define ___ &trans
 
-    behaviors {
-        capsht: capsht {
-            compatible = "zmk,behavior-hold-tap";
-            label = "CAPSHT";
-            bindings = <&kp>, <&caps_word>;
+// keymap
+ZMK_LAYER(Base_layer,
+     //╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗
+         &kp ESC       &kp Q          &kp W            &kp F             &kp P             &kp B              &kp L            &kp L             &kp U              &kp Y             &kp SEMI         &key_repeat
+     //╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣
+         ???           &hml LGUI A    &hml LALT R      &hml LCTRL S      &hml LSHFT T      &kp G              &kp M            &hmr RSHFT N      &hmr RCTRL E       &hmr LALT I       &hmr RGUI O      &kp APOS
+     //╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣
+         &smart_shft   &kp Z          &kp X            &kp C             &kp D             &kp V              &kp K            &kp H             &kp COMMA          &kp DOT           &kp FSLH         &smart_shft
+     //╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝
+                                                       ???               &lt_bs NUM 0      &lt NAV TAB        &lt NUM RET      &lt NAV SPACE     ???
+     //                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝
+)
 
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-        };
-        bckspc_del: bckspc_del {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BCKSPC_DEL";
-            bindings = <&kp BACKSPACE>, <&kp DEL>;
+ZMK_LAYER(Number_layer,
+     //╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗
+         ___           &kp N1         &kp N2           &kp N3            &kp N4            &kp N5             &kp N6           &kp N7            &kp N8             &kp N9            &kp N0           ___
+     //╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣
+         ___           &hml LGUI LT   &hml LALT LBKT   &hml LCTRL LPAR   &hml LSHFT LBRC   &kp FSLH           &kp BSLH         &hmr RSHFT PIPE   &hmr RCTRL COLON   &hmr LALT MINUS   &hmr RGUI PLUS   ___
+     //╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣
+         ___           &kp GT         &kp RBKT         &kp RPAR          &kp RBRC          &kp EXCL           &kp QMARK        &kp TILDE         &kp SEMI           &kp UNDER         &kp EQUAL        ___
+     //╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝
+                                                       ---               ---               ---                ---              ---               ---
+     //                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝
+)
 
-            #binding-cells = <0>;
-            mods = <(MOD_RSFT|MOD_LSFT)>;
-        };
-        bckmo: bckmo {
-            compatible = "zmk,behavior-hold-tap";
-            label = "BCKMO";
-            bindings = <&mo>, <&bckspc_del>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-    };
-
-    keymap {
-        compatible = "zmk,keymap";
-
-        BASE_LAYER {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
-            bindings = <
-&none  &kp Q             &kp W       &kp F        &kp P       &kp B      &kp J      &kp L        &kp U                  &kp Y           &kp SQT                &none
-&none  &mt LGUI A        &mt LALT R  &mt LCTRL S  &kp T       &kp G      &kp M      &kp N        &mt RCTRL E            &mt LEFT_ALT I  &mt RIGHT_META O       &none
-&none  &mt LEFT_SHIFT Z  &kp X       &kp C        &kp D       &kp V      &kp K      &kp H        &kp COMMA              &kp DOT         &mt RIGHT_SHIFT SLASH  &none
-                                     &kp ESC      &bckmo 1 0  &kp TAB    &kp ENTER  &lt 2 SPACE  &capsht RIGHT_SHIFT 0
-            >;
-
-            label = "BAS";
-        };
-
-        SYMBOL_LAYER {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            bindings = <
-&trans  &kp N1            &kp N2             &kp N3                 &kp N4           &kp N5       &kp N6         &kp N7     &kp N8         &kp N9          &kp N0     &trans
-&trans  &kp LESS_THAN     &kp LBKT           &kp LEFT_PARENTHESIS   &kp LEFT_BRACE   &kp SLASH    &kp BACKSLASH  &kp PIPE   &kp COLON      &kp MINUS       &kp PLUS   &trans
-&trans  &kp GREATER_THAN  &kp RIGHT_BRACKET  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp EXCL     &kp QUESTION   &kp TILDE  &kp SEMICOLON  &kp UNDERSCORE  &kp EQUAL  &trans
-                                             &trans                 &trans           &trans       &trans         &trans     &trans
-            >;
-
-            label = "SYM";
-        };
-
-        NAVIGATION_LAYER {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            bindings = <
-&trans  &kp LG(NUMBER_6)  &kp LG(N7)        &kp LG(N8)        &kp LG(N9)        &kp LG(N0)          &kp LG(TAB)    &kp LG(LEFT)    &kp LG(DOWN)    &kp LG(UP)    &kp LG(RIGHT)    &trans
-&trans  &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(NUMBER_5)    &kp LG(F)      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &kp LG(F1)        &kp LG(F2)        &kp LG(F3)        &kp LG(F4)        &kp LG(F5)          &kp LG(SPACE)  &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP   &kp END          &trans
-                                            &trans            &trans            &trans              &trans         &trans          &trans
-            >;
-
-            label = "NAV";
-        };
-
-        FUNCTION_LAYER {
-            bindings = <
-&none  &kp F1  &kp F2               &kp F3           &kp F4               &kp F5     &kp F6   &kp F7      &kp F8    &kp F9      &kp F10     &none
-&none  &none   &kp LS(PRINTSCREEN)  &kp PRINTSCREEN  &kp LA(PRINTSCREEN)  &kp F11    &kp F12  &kp K_PREV  &kp K_PP  &kp K_STOP  &kp K_NEXT  &none
-&none  &none   &none                &none            &none                &none      &none    &none       &none     &none       &none       &none
-                                    &trans           &trans               &trans     &trans   &trans      &trans
-            >;
-
-            label = "FUN";
-        };
-    };
-
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        FUNCTION_LAYER {
-            if-layers = <1 2>;
-            then-layer = <3>;
-        };
-    };
-};
+ZMK_LAYER(Navigation_layer,
+     //╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗
+         ___           &kp LG(N6)     &kp LG(N7)       &kp LG(N8)        &kp LG(N9)        &kp LG(N0)         &kp LG(TAB)      &kp LG(LEFT)      &kp LG(DOWN)       &kp LG(UP)        &kp LG(RIGHT)    ___
+     //╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣
+         ___           &kp LG(N1)     &kp LG(N2)       &kp LG(N3)        &kp LG(N4)        &kp LG(N5)         &kp LG(F)        &kp LEFT          &kp DOWN           &kp UP            &kp RIGHT        ___
+     //╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣
+         ___           &kp LG(F1)     &kp LG(F2)       &kp LG(F3)        &kp LG(F4)        &kp LG(F5)         &kp LG(SPACE)    &kp HOME          &kp PG_DN          &kp PG_UP         &kp END          ___
+     //╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝
+                                                       ---               ---               ---                ---              ---               ---
+     //                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝
+)
