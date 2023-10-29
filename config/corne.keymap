@@ -5,15 +5,16 @@
 // Nodefree helper modules
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/keypos_def/keypos_42keys.h"
-// custom additions
-#include "combos.dtsi"
-#include "behaviors.dtsi"
 
 // Layer aliases
 #define BAS 0
 #define NUM 1
 #define NAV 2
 #define SYS 3
+
+// custom additions
+#include "combos.dtsi"
+#include "behaviors.dtsi"
 
 // Special key aliases
 #define XXX &none
