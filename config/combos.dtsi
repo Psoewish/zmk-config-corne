@@ -15,4 +15,4 @@
 #define COMBO_TERM_SLOW 30
 
 //        NAME     BINDING      KEYPOS       LAYERS       TIMEOUT
-ZMK_COMBO(num_on,  &to NUM,     LH1 RH0,     BAS     NAV, COMBO_TERM_FAST)
+//ZMK_COMBO(num_on,  &to NUM,     LH1 RH0,     BAS     NAV, COMBO_TERM_FAST)
