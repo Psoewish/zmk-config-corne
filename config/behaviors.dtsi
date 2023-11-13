@@ -32,6 +32,7 @@ ZMK_BEHAVIOR(caps_morph, mod_morph,
 #define AS(keycode) &as LS(keycode) keycode
 ZMK_BEHAVIOR(as, hold_tap, 
      flavor = "tap-preferred";
+     binding-cells = <2>;
      tapping-term-ms = <200>;
      quick-tap-ms = <125>;
      bindings = <&kp>, <&kp>;
