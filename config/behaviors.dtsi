@@ -1,47 +1,38 @@
-#define QUICK_TAP_MS 175
-
-// Change global core behavior preferences
-&sk {
-     release-after-ms = <900>;
-     quick-release;
-};
-
-&sl {
-     ignore-modifiers;
-};
-
-&lt {
-     flavor = "balanced";
-     tapping-term-ms = <200>;
-     quick-tap-ms = <QUICK_TAP_MS>;
-};
-
-// Combine backspace and del by allowing shift+backspace
-ZMK_BEHAVIOR(bs_morph, mod_morph,
-    bindings = <&kp BSPC>, <&kp DEL>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-
-// Caps word when pressed, caps lock when shift-pressed (or double tapped)
-ZMK_BEHAVIOR(caps_morph, mod_morph,
-     bindings = <&caps_word>, <&kp CAPS>;
-     mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-
-// Autoshift
 #define AS(keycode) &as LS(keycode) keycode
-
-ZMK_BEHAVIOR(as, hold_tap, 
-     flavor = "tap-preferred";
-     tapping-term-ms = <200>;
-     quick-tap-ms = <QUICK_TAP_MS>;
-     bindings = <&kp>, <&kp>;
-)
-
-// Layer toggle with alt+key, momentary when held
 #define LTM(layer) &ltm layer layer
 
-ZMK_BEHAVIOR(ltm, mod_morph,
-     bindings = <&mo>, <&tog>;
-     mods = <(MOD_LALT)>;
-)
+/ {
+     behaviors {
+          // Auto shift
+          as: auto_shift {
+               compatible = "zmk,behavior-hold-tap";
+               label = "AUTO_SHIFT";
+               #binding-cells = <2>;
+               tapping_term_ms = <125>;
+               quick_tap_ms = <0>;
+               flavor = "tap-preferred";
+               bindings = <&kp>, <&kp>;
+          };
+          cm: caps_morph {
+               compatible = "zmk,behavior-mod-morph";
+               label = "CAPS_MORPH";
+               #binding-cells = <0>;
+               bindings = <&caps_word>, <&kp CAPS>;
+               mods = <(MOD_LSFT|MOD_RSFT)>;
+          };
+          ltm: layer_momentary_toggle {
+               compatible = "zmk,behavior-mod-morph";
+               label = "LAYER_MORPH";
+               #binding-cells = <0>;
+               bindings = <&mo>, <&tog>;
+               mods = <(MOD_LALT)>;
+          };
+          bsm: backspace_morph {
+               compatible = "zmk,behavior-mod-morph";
+               label = "BACKSPACE_MORPH";
+               #binding-cells = <0>;
+               bindings = <&kp BSPC>, <&kp DEL>;
+               mods = <(MOD_LSFT|MOD_RSFT)>;
+          };
+     };
+};
