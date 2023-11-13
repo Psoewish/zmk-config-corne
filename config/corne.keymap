@@ -37,7 +37,7 @@ ZMK_BEHAVIOR(lwr, mod_morph,
     bindings = <&mo LWR>, <&tog LWR>;
     mods = <(MOD_LALT)>;
 )
-ZMK_BEHAVIOR(rse, mod_morpth,
+ZMK_BEHAVIOR(rse, mod_morph,
     bindings = <&mo RSE>, <&tog RSE>;
     mods = <(MOD_LALT)>;
 )
