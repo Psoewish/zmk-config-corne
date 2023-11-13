@@ -15,8 +15,4 @@
 #define COMBO_TERM_SLOW 30
 
 //        NAME     BINDING      KEYPOS       LAYERS       TIMEOUT
-// Sticky layers by pressing the same layer at the same time (using both left and right thumb keys at the same time)
 ZMK_COMBO(num_on,  &to NUM,     LH1 RH0,     BAS     NAV, COMBO_TERM_FAST)
-ZMK_COMBO(nav_on,  &to NAV,     LH0 RH1,     BAS NUM    , COMBO_TERM_FAST)
-ZMK_COMBO(num_off, &to BAS,     LH1 RH0,         NUM NAV, COMBO_TERM_FAST)
-ZMK_COMBO(nav_off, &to BAS,     LH0 RH1,         NUM NAV, COMBO_TERM_FAST)
