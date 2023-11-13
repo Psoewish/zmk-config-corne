@@ -8,8 +8,8 @@
 #define LWR 1
 #define RSE 2
 
-#define AS(keycode) &as LS(keycode) keycode
-#define LTM(layer) &ltm layer layer
+// #define &as N1 kec) &as LS(keycode) keycode
+// #define LMT(layer) &lmt layer layer
 
 /* Custom behaviors */
 /{
@@ -19,7 +19,7 @@
             #binding-cells = <2>;
             label = "AUTO_SHIFT";
             tapping-term-ms = <150>;
-            quick-tap-ms = <20>;
+            quick-tap-ms = <15>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
@@ -30,10 +30,10 @@
             bindings = <&caps_word>, <&kp CAPS>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        ltm: layer_momentary_toggle {
+        lmt: layer_momentary_toggle {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            label = "LAYER_HOLD_TOGGLE";
+            label = "LAYER_MOMENTARY_TOGGLE";
             bindings = <&mo>, <&tog>;
             mods = <(MOD_LALT)>;
         };
@@ -61,7 +61,7 @@
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
          &cm           &mt LGUI Z     &mt LALT X       &mt LCTRL C       &kp D             &kp V              &kp K            &kp H             &mt RCTRL COMMA    &mt LALT DOT      &mt RGUI FSLH    &kp RET
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
-                                                       &none             LTM(LWR)          &sk LSHIFT         &kp SPACE        LTM(RSE)          &none
+                                                       &none             &lmt LWR LWR      &sk LSHIFT         &kp SPACE        &lmt RSE RSE      &none
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
             >;
         };
@@ -69,7 +69,7 @@
         lower_layer {
             bindings = <
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
-         &trans        AS(N1)         AS(N2)           AS(N3)            AS(N4)            AS(N5)             AS(N6)           AS(N7)            AS(N8)             AS(N9)            AS(N0)           &trans
+         &trans        &as N1 N1      &as N2 N2        &as N3 N3         &as N4 N4         &as N5 N5          &as N6 N6        &as N7 N7         &as N8 N8          &as N9 N9         &as N0 N0        &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
          &trans        &kp LT         &kp LBKT         &kp LPAR          &kp LBRC          &kp FSLH           &kp BSLH         &kp PIPE          &kp COLON          &kp MINUS         &kp PLUS         &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
