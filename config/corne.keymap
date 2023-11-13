@@ -14,15 +14,15 @@
 /* Custom behaviors */
 /{
     behaviors {
-        as: auto_shift {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            label = "AUTO_SHIFT";
-            tapping-term-ms = <150>;
-            quick-tap-ms = <15>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
+        // as: auto_shift {
+        //     compatible = "zmk,behavior-hold-tap";
+        //     #binding-cells = <2>;
+        //     label = "AUTO_SHIFT";
+        //     tapping-term-ms = <150>;
+        //     quick-tap-ms = <15>;
+        //     flavor = "tap-preferred";
+        //     bindings = <&kp>, <&kp>;
+        // };
         cm: caps_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -69,7 +69,7 @@
         lower_layer {
             bindings = <
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
-         &trans        AS(N1)         AS(N2)           AS(N3)            AS(N4)            AS(N5)             AS(N6)           AS(N7)            AS(N8)             AS(N9)            AS(N0)           &trans
+         &trans        &kp N1         &kp N2           &kp N3            &kp N4            &kp N5             &kp N6           &kp N7            &kp N8             &kp N9            &kp N0           &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
          &trans        &kp LT         &kp LBKT         &kp LPAR          &kp LBRC          &kp FSLH           &kp BSLH         &kp PIPE          &kp COLON          &kp MINUS         &kp PLUS         &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
