@@ -36,6 +36,20 @@
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        lwr: lower_hold_toggle {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            label = "LOWER_HOLD_TOGGLE";
+            bindings = <&mo LWR>, <&tog LWR>;
+            mods = <(MOD_LALT)>;
+        };
+        rse: raise_hold_toggle {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            label = "RAISE_HOLD_TOGGLE";
+            bindings = <&mo RSE>, <&tog RSE>;
+            mods = <(MOD_LALT)>;
+        };
     };
 };
 
@@ -53,7 +67,7 @@
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
          &cm           &mt LGUI Z     &mt LALT X       &mt LCTRL C       &kp D             &kp V              &kp K            &kp H             &mt RCTRL COMMA    &mt LALT DOT      &mt RGUI FSLH    &kp RET
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
-                                                       &none             &mo LWR           &sk LSHIFT         &kp SPACE        &mo RSE           &none
+                                                       &none             &lwr              &sk LSHIFT         &kp SPACE        &rse              &none
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
             >;
         };
