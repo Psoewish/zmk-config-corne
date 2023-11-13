@@ -8,7 +8,7 @@
 #define LWR 1
 #define RSE 2
 
-#define &as N1 kec) &as LS(keycode) keycode
+// #define &as N1 kec) &as LS(keycode) keycode
 // #define LMT(layer) &lmt layer layer
 
 /* Custom behaviors */
