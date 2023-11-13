@@ -30,16 +30,17 @@ ZMK_BEHAVIOR(caps_morph, mod_morph,
 
 // Autoshift
 #define AS(keycode) &as LS(keycode) keycode
+
 ZMK_BEHAVIOR(as, hold_tap, 
      flavor = "tap-preferred";
-     #binding-cells = <2>;
      tapping-term-ms = <200>;
-     quick-tap-ms = <125>;
+     quick-tap-ms = <QUICK_TAP_MS>;
      bindings = <&kp>, <&kp>;
 )
 
 // Layer toggle with alt+key, momentary when held
 #define LTM(layer) &ltm layer layer
+
 ZMK_BEHAVIOR(ltm, mod_morph,
      bindings = <&mo>, <&tog>;
      mods = <(MOD_LALT)>;
