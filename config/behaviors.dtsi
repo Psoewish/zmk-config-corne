@@ -38,8 +38,12 @@ ZMK_BEHAVIOR(as, hold_tap,
 )
 
 // Layer toggle with alt+key, momentary when held
-#define LTM(layer) &ltm layer layer
-ZMK_BEHAVIOR(ltm, mod_morph,
-     bindings = <&mo>, <&tog>;
+
+ZMK_BEHAVIOR(ltm_num, mod_morph,
+     bindings = <&mo NUM>, <&tog NUM>;
+     mods = <(MOD_LALT)>;
+)
+ZMK_BEHAVIOR(ltm_nav, mod_morph,
+     bindings = <&mo NAV>, <&tog NAV>;
      mods = <(MOD_LALT)>;
 )
