@@ -33,27 +33,27 @@ ZMK_BEHAVIOR(bsd, mod_morph,
 )
 
 /* Hold for temporary layer, alt+press for layer toggle */
-ZMK_BEHAVIOR(lwr, mod_morph,
-    bindings = <&mo LWR>, <&tog LWR>;
-    mods = <(MOD_LALT)>;
-)
-ZMK_BEHAVIOR(rse, mod_morph,
-    bindings = <&mo RSE>, <&tog RSE>;
-    mods = <(MOD_LALT)>;
-)
+// ZMK_BEHAVIOR(lwr, mod_morph,
+//     bindings = <&mo LWR>, <&tog LWR>;
+//     mods = <(MOD_LALT)>;
+// )
+// ZMK_BEHAVIOR(rse, mod_morph,
+//     bindings = <&mo RSE>, <&tog RSE>;
+//     mods = <(MOD_LALT)>;
+// )
 
-ZMK_BEHAVIOR(lht, hold_tap,
-    flavor = "tap-preferred";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <200>;
-    bindings = <&lwr>, <&kp SPACE>;
-)
-ZMK_BEHAVIOR(rht, hold_tap,
-    flavor = "tap-preferred";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <200>;
-    bindings = <&rse>, <&bsd>;
-)
+// ZMK_BEHAVIOR(lht, hold_tap,
+//     flavor = "tap-preferred";
+//     tapping-term-ms = <200>;
+//     quick-tap-ms = <200>;
+//     bindings = <&lwr>, <&kp SPACE>;
+// )
+// ZMK_BEHAVIOR(rht, hold_tap,
+//     flavor = "tap-preferred";
+//     tapping-term-ms = <200>;
+//     quick-tap-ms = <200>;
+//     bindings = <&rse>, <&bsd>;
+// )
 
 /* Conditional layer */
 ZMK_CONDITIONAL_LAYER(LWR RSE, ADJ)
@@ -67,7 +67,7 @@ ZMK_LAYER(base_layer,
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
          &cm           &mt LGUI Z     &mt LALT X       &mt LCTRL C       &kp D             &kp V              &kp K            &kp H             &mt RCTRL COMMA    &mt LALT DOT      &mt RGUI FSLH    &kp RET
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
-                                                       &none             &lht              &sk LSHIFT         &kp RETURN       &rht              &none
+                                                       &none             &lt LWR BSPC      &sk LSHIFT         &kp RETURN       &lt RSE SPACE     &none
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
 )
 ZMK_LAYER(lower_layer,
