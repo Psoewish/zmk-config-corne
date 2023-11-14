@@ -19,15 +19,15 @@
     ignore-modifiers;
 };
 &lt {
-    flavor = "balanced";
-    tapping-term-ms = <200>;
     quick-tap-ms = <175>;
+};
+&caps_word {
+    /delete-property/ ignore-modifiers;
 };
 
 /* Homerow mods */
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LG2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB3 LB5
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RG2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB3 RB5
-#define THUMBS LH0 LH1 LH2 RH0 RH1 RH2
 
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
     ZMK_BEHAVIOR(NAME, hold_tap, \
@@ -39,33 +39,17 @@
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
     )
-
-MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
-MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
-
-/* Auto shift */
-#define AS(keycode) &as LS(keycode) keycode
-ZMK_BEHAVIOR(as, hold_tap,
-    flavor = "tap-preferred";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <15>;
-    bindings = <&kp>, <&kp>;
 )
+
+MAKE_HRM(hml, &kp, &kp, KEYS_R)
+MAKE_HRM(hmr, &kp, &kp, KEYS_L)
 
 /* Smart shift */
 ZMK_BEHAVIOR(smart_shift, mod_morph,
     bindings = <&sk LSHFT>, <&caps_word>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
-&caps_word {
-    /delete-property/ ignore-modifiers;
-};
 
-/* Shifted backspace = delete */
-ZMK_BEHAVIOR(bsd, mod_morph,
-    bindings = <&kp BACKSPACE>, <&kp DELETE>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
 ZMK_BEHAVIOR(cexcl, mod_morph,
     bindings = <&kp COMMA>, <&kp EXCLAMATION>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -84,22 +68,22 @@ ZMK_BEHAVIOR(pquestion, mod_morph,
 #define cycleprev      &kp LG(UP)
 #define cyclenext      &kp LG(DOWN)
 
-#define workspace1     &kp LG(N1)
-#define workspace2     &kp LG(N2)
-#define workspace3     &kp LG(N3)
-#define workspace4     &kp LG(N4)
-#define workspace5     &kp LG(N5)
-#define workspace6     &kp LG(N6)
-#define workspace7     &kp LG(N7)
-#define workspace8     &kp LG(N8)
-#define workspace9     &kp LG(N9)
-#define workspace10    &kp LG(N0)
+#define WS1     &kp LG(N1)
+#define WS2     &kp LG(N2)
+#define WS3     &kp LG(N3)
+#define WS4     &kp LG(N4)
+#define WS5     &kp LG(N5)
+#define WS6     &kp LG(N6)
+#define WS7     &kp LG(N7)
+#define WS8     &kp LG(N8)
+#define WS9     &kp LG(N9)
+#define WS10    &kp LG(N0)
 
-#define scratchpad1    &kp LG(F1)
-#define scratchpad2    &kp LG(F2)
-#define scratchpad3    &kp LG(F3)
-#define scratchpad4    &kp LG(F4)
-#define scratchpad5    &kp LG(F5)
+#define SP1    &kp LG(F1)
+#define SP2    &kp LG(F2)
+#define SP3    &kp LG(F3)
+#define SP4    &kp LG(F4)
+#define SP5    &kp LG(F5)
 
 /* Conditional layer */
 ZMK_CONDITIONAL_LAYER(LWR RSE, ADJ)
@@ -118,7 +102,7 @@ ZMK_LAYER(base_layer,
 )
 ZMK_LAYER(lower_layer,
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
-         &trans        AS(N1)         AS(N2)           AS(N3)            AS(N4)            AS(N5)             AS(N6)           AS(N7)            AS(N8)             AS(N9)            AS(N0)           &trans
+         &trans        &kp N1         &kp N2           &kp N3            &kp N4            &kp N5             &kp N6           &kp N7            &kp N8             &kp N9            &kp N0           &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
          &trans        &kp LT         &kp LBKT         &kp LPAR          &kp LBRC          &kp FSLH           &kp BSLH         &kp PIPE          &kp COLON          &kp MINUS         &kp PLUS         &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
@@ -129,11 +113,11 @@ ZMK_LAYER(lower_layer,
 )
 ZMK_LAYER(raise_layer,
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
-         &trans        workspace6     workspace7       workspace8        workspace9        workspace10        app_full         addmaster         cycleprev          cyclenext         removemaster     &trans
+         &trans        WS6            WS7              WS8               WS9               WS10               app_full         addmaster         cycleprev          cyclenext         removemaster     &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &trans        workspace1     workspace2       workspace3        workspace4        workspace5         app_max          &kp LEFT          &kp DOWN           &kp UP            &kp RIGHT        &trans
+         &trans        WS1            WS2              WS3               WS4               WS5                app_max          &kp LEFT          &kp DOWN           &kp UP            &kp RIGHT        &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &trans        scratchpad1    scratchpad2      scratchpad3       scratchpad4       scratchpad5        app_float        &kp HOME          &kp PG_DN          &kp PG_UP         &kp END          &trans
+         &trans        SP1            SP2              SP3               SP4               SP5                app_float        &kp HOME          &kp PG_DN          &kp PG_UP         &kp END          &trans
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
                                                        &trans            &trans            &trans             &trans           &trans            &trans
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
