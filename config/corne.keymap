@@ -66,13 +66,6 @@ ZMK_BEHAVIOR(bsd, mod_morph,
     bindings = <&kp BACKSPACE>, <&kp DELETE>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
-ZMK_BEHAVIOR(lbsd, hold_tap,
-    flavor = "tap-preferred";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <175>;
-    bindings = <&mo LWR>, <&bsd>;
-)
-
 ZMK_BEHAVIOR(cexcl, mod_morph,
     bindings = <&kp COMMA>, <&kp EXCLAMATION>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -116,11 +109,11 @@ ZMK_LAYER(base_layer,
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
          &none         &kp Q          &kp W            &kp F             &kp P             &kp B              &kp J            &kp L             &kp U              &kp Y             &kp APOS         &none
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &none         &hml LGUI A    &hml LALT R      &hml LCTRL S      &kp T             &kp G              &kp M            &kp N             &hmr RCTRL E       &hmr LALT I       &hmr RGUI O      &none
+         &none         &hml LGUI A    &hml LALT R      &hml LCTRL S      &hml LSHIFT T     &kp G              &kp M            &hmr RSHIFT N     &hmr RCTRL E       &hmr LALT I       &hmr RGUI O      &none
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
          &smart_shift  &kp Z          &kp X            &kp C             &kp D             &kp V              &kp K            &kp H             &cexcl             &pquestion        &kp SEMI         &smart_shift
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
-                                                       &kp ESC           &lbsd             &kp TAB            &kp RETURN       &lt RSE SPACE     &none
+                                                       &kp ESC           &lt LWR BSPC      &kp TAB            &kp RETURN       &lt RSE SPACE     &none
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
 )
 ZMK_LAYER(lower_layer,
