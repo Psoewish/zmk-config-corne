@@ -29,7 +29,7 @@
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LG2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB3 LB5
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RG2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB3 RB5
 
-ZMK_BEHAVIOR(hml, mod_tap,
+ZMK_BEHAVIOR(hml, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <280>;
     quick-tap-ms = <175>;
@@ -38,7 +38,7 @@ ZMK_BEHAVIOR(hml, mod_tap,
     hold-trigger-key-positions = <KEYS_R>;
     hold-trigger-on-release;
 )
-ZMK_BEHAVIOR(hmr, mod_tap,
+ZMK_BEHAVIOR(hmr, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <280>;
     quick-tap-ms = <175>;
@@ -63,32 +63,6 @@ ZMK_BEHAVIOR(pquestion, mod_morph,
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 
-#define app_pin        &kp LG(X)
-#define app_float      &kp LG(SPACE)
-#define app_max        &kp LG(F)
-
-#define addmaster      &kp LG(LEFT)
-#define removemaster   &kp LG(RIGHT)
-#define cycleprev      &kp LG(UP)
-#define cyclenext      &kp LG(DOWN)
-
-#define WS1     &kp LG(N1)
-#define WS2     &kp LG(N2)
-#define WS3     &kp LG(N3)
-#define WS4     &kp LG(N4)
-#define WS5     &kp LG(N5)
-#define WS6     &kp LG(N6)
-#define WS7     &kp LG(N7)
-#define WS8     &kp LG(N8)
-#define WS9     &kp LG(N9)
-#define WS10    &kp LG(N0)
-
-#define SP1    &kp LG(F1)
-#define SP2    &kp LG(F2)
-#define SP3    &kp LG(F3)
-#define SP4    &kp LG(F4)
-#define SP5    &kp LG(F5)
-
 /* Conditional layer */
 ZMK_CONDITIONAL_LAYER(LWR RSE, ADJ)
 
@@ -97,7 +71,7 @@ ZMK_LAYER(base_layer,
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
          &none         &kp Q          &kp W            &kp F             &kp P             &kp B              &kp J            &kp L             &kp U              &kp Y             &kp APOS         &none
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &none         &hml LGUI A    &hml LALT R      &hml LCTRL S      &hml LSHIFT T     &kp G              &kp M            &hmr RSHIFT N     &hmr RCTRL E       &hmr LALT I       &hmr RGUI O      &none
+         &none         &hml LGUI A    &hml LALT R      &hml LCTL S       &hml LSFT T       &kp G              &kp M            &hmr RSFT N       &hmr RCTL E        &hmr LALT I       &hmr RGUI O      &none
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
          &smart_shift  &kp Z          &kp X            &kp C             &kp D             &kp V              &kp K            &kp H             &cexcl             &pquestion        &kp SEMI         &smart_shift
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
@@ -117,11 +91,11 @@ ZMK_LAYER(lower_layer,
 )
 ZMK_LAYER(raise_layer,
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
-         &trans        WS6            WS7              WS8               WS9               WS10               app_full         addmaster         cycleprev          cyclenext         removemaster     &trans
+         &trans        &kp LG(N6)     &kp LG(N7)       &kp LG(N8)        &kp LG(N9)        &kp LG(N0)         &kp LG(LS(F))    &kp LG(LEFT)      &kp LG(DOWN)       &kp LG(UP)        &kp LG(RIGHT)    &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &trans        WS1            WS2              WS3               WS4               WS5                app_max          &kp LEFT          &kp DOWN           &kp UP            &kp RIGHT        &trans
+         &trans        &kp LG(N1)     &kp LG(N2)       &kp LG(N3)        &kp LG(N4)        &kp LG(N5)         &kp LG(F)        &kp LEFT          &kp DOWN           &kp UP            &kp RIGHT        &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &trans        SP1            SP2              SP3               SP4               SP5                app_float        &kp HOME          &kp PG_DN          &kp PG_UP         &kp END          &trans
+         &trans        &kp LG(F1)     &kp LG(F2)       &kp LG(F3)        &kp LG(F4)        &kp LG(F5)         &kp LG(SPACE)    &kp HOME          &kp PG_DN          &kp PG_UP         &kp END          &trans
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
                                                        &trans            &trans            &trans             &trans           &trans            &trans
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
