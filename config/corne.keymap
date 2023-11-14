@@ -27,6 +27,7 @@
 /* Homerow mods */
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LM0 LM1 LG2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB3 LB5
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RM0 RM1 RG2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB3 RB5
+#define THUMBS LH0 LH1 LH2 RH0 RH1 RH2
 
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
     ZMK_BEHAVIOR(NAME, hold_tap, \
@@ -39,8 +40,8 @@
         hold-trigger-on-release; \
     )
 
-MAKE_HRM(hml, &kp, &kp, KEYS_R)
-MAKE_HRM(hmr, &kp, &kp, KEYS_L)
+MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
+MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
 /* Auto shift */
 #define AS(keycode) &as LS(keycode) keycode
