@@ -39,7 +39,6 @@
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
     )
-)
 
 MAKE_HRM(hml, &kp, &kp, KEYS_R)
 MAKE_HRM(hmr, &kp, &kp, KEYS_L)
