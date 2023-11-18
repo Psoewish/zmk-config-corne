@@ -27,13 +27,13 @@
         base_layer {
             bindings = <
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
-         &none         &kp Q          &kp W            &kp F             &kp P             &kp B              &kp J            &kp L             &kp U              &kp Y             &kp APOS         &none
+         &kp ESC       &kp Q          &kp W            &kp F             &kp P             &kp B              &kp J            &kp L             &kp U              &kp Y             &kp SEMI         &none
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &none         &hml LGUI A    &hml LALT R      &hml LCTL S       &hml LSFT T       &kp G              &kp M            &hmr RSFT N       &hmr RCTL E        &hmr LALT I       &hmr RGUI O      &none
+         &kp TAB       &hml LGUI A    &hml LALT R      &hml LCTL S       &hml LSFT T       &kp G              &kp M            &hmr RSFT N       &hmr RCTL E        &hmr LALT I       &hmr RGUI O      &kp APOS
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &smart_shift  &kp Z          &kp X            &kp C             &kp D             &kp V              &kp K            &kp H             &cexcl             &pquestion        &kp SEMI         &smart_shift
+         &none         &kp Z          &kp X            &kp C             &kp D             &kp V              &kp K            &kp H             &cexcl             &pquestion        &kp SEMI         &none
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
-                                                       &kp ESC           &lt LWR BSPC      &kp TAB            &kp RETURN       &lt RSE SPACE     &none
+                                                       &none             &lt LWR BSPC      &smart_shift       &kp RETURN       &lt RSE SPACE     &none
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
             >;
         };
