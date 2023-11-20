@@ -50,19 +50,5 @@
 			bindings = <&sk LSHIFT>, <&caps_word>;
 			mods = <(MOD_LSFT|MOD_RSFT)>;
 		};
-		cexcl: comma_exclamation {
-			compatible = "zmk,behavior-mod-morph";
-			label = "COMMA_EXCLAMATION";
-			#binding-cells = <0>;
-			bindings = <&kp COMMA>, <&kp EXCL>;
-			mods = <(MOD_LSFT|MOD_RSFT)>;
-		};
-		pquestion: period_question {
-			compatible = "zmk,behavior-mod-morph";
-			label = "PERIOD_QUESTION";
-			#binding-cells = <0>;
-			bindings = <&kp PERIOD>, <&kp QMARK>;
-			mods = <(MOD_LSFT|MOD_RSFT)>;
-		};
 	};
 };
