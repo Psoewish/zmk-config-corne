@@ -33,38 +33,38 @@
 
 /* OS Shortcuts */
 /* Workspaces */
-#define f-ws1                 &kp LA(N1)
-#define f-ws2                 &kp LA(N2)
-#define f-ws3                 &kp LA(N3)
-#define f-ws4                 &kp LA(N4)
-#define f-ws5                 &kp LA(N5)
+#define f_ws1                 &kp LA(N1)
+#define f_ws2                 &kp LA(N2)
+#define f_ws3                 &kp LA(N3)
+#define f_ws4                 &kp LA(N4)
+#define f_ws5                 &kp LA(N5)
 
-#define s-ws1                 &kp LA(LS(N1))
-#define s-ws2                 &kp LA(LS(N2))
-#define s-ws3                 &kp LA(LS(N3))
-#define s-ws4                 &kp LA(LS(N4))
-#define s-ws5                 &kp LA(LS(N5))
+#define s_ws1                 &kp LA(LS(N1))
+#define s_ws2                 &kp LA(LS(N2))
+#define s_ws3                 &kp LA(LS(N3))
+#define s_ws4                 &kp LA(LS(N4))
+#define s_ws5                 &kp LA(LS(N5))
 
-#define sf-ws1                &kp LA(LC(LS(N1)))
-#define sf-ws2                &kp LA(LC(LS(N2)))
-#define sf-ws3                &kp LA(LC(LS(N3)))
-#define sf-ws4                &kp LA(LC(LS(N4)))
-#define sf-ws5                &kp LA(LC(LS(N5)))
+#define sf_ws1                &kp LA(LC(LS(N1)))
+#define sf_ws2                &kp LA(LC(LS(N2)))
+#define sf_ws3                &kp LA(LC(LS(N3)))
+#define sf_ws4                &kp LA(LC(LS(N4)))
+#define sf_ws5                &kp LA(LC(LS(N5)))
 
 /* Window management */
 #define float                 &kp LA(T)
 #define monocle               &kp LA(LS(F))
 #define maximize              &kp LA(LC(LS(F)))
 
-#define wf-left               &kp LA(LEFT)
-#define wf-down               &kp LA(DOWN)
-#define wf-up                 &kp LA(UP)
-#define wf-right              &kp LA(RIGHT)
+#define wf_left               &kp LA(LEFT)
+#define wf_down               &kp LA(DOWN)
+#define wf_up                 &kp LA(UP)
+#define wf_right              &kp LA(RIGHT)
 
-#define wm-left               &kp LA(LS(LEFT))
-#define wm-down               &kp LA(LS(DOWN))
-#define wm-up                 &kp LA(LS(UP))
-#define wm-right              &kp LA(LS(RIGHT))
+#define wm_left               &kp LA(LS(LEFT))
+#define wm_down               &kp LA(LS(DOWN))
+#define wm_up                 &kp LA(LS(UP))
+#define wm_right              &kp LA(LS(RIGHT))
 
 /* Misc tools */
 #define cliphist              &kp LG(V)
@@ -103,11 +103,11 @@
         navigation_layer {
             bindings = <
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
-         &trans        s-ws1          s-ws2            s-ws3             s-ws4             s-ws5              maximize         f-left            f-down             f-up              f-right          &trans
+         &trans        s_ws1          s_ws2            s_ws3             s_ws4             s_ws5              maximize         f_left            f_down             f_up              f_right          &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &trans        f-ws1          f-ws2            f-ws3             f-ws4             f-ws5              monocle          &kp LEFT          &kp DOWN           &kp UP            &kp RIGHT        &trans
+         &trans        f_ws1          f_ws2            f_ws3             f_ws4             f_ws5              monocle          &kp LEFT          &kp DOWN           &kp UP            &kp RIGHT        &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &trans        sf-ws1         sf-ws2           sf-ws3            sf-ws4            sf-ws5             float            wm-left           wm-down            wm-up             wm-right         &trans
+         &trans        sf_ws1         sf_ws2           sf_ws3            sf_ws4            sf_ws5             float            wm_left           wm_down            wm_up             wm_right         &trans
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
                                                        &trans            &trans            &trans             &trans           &trans            &trans
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
