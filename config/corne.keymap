@@ -20,7 +20,7 @@
 };
 
 /* OS Shortcuts */
-/* Workspaces */
+/* Workspaces - Komorebi on Windows */
 /* Focus workspace */
 #define focus1                &kp LA(N1)
 #define focus2                &kp LA(N2)
@@ -61,6 +61,8 @@
 
 /* Misc tools */
 #define cliphist                &kp LG(V)
+// SoundSwitch app for Windows
+#define swapaudio              &kp LA(LS(F11))
 
 /* Keymap */
 / {
@@ -111,9 +113,9 @@
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
          &kp F1        &kp F2         &kp F3           &kp F4            &kp F5            &kp F6             &kp F7           &kp F8            &kp F9             &kp F10           &kp F11          &kp F12
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &trans        &kp END        &kp PG_UP        &kp PG_DN         &kp HOME          &kp PSCRN          cliphist         &kp C_PREV        &kp C_PP           &kp C_STOP        &kp C_NEXT       &trans
+         &none         &kp END        &kp PG_UP        &kp PG_DN         &kp HOME          &kp PSCRN          swapaudio        &kp C_PREV        &kp C_PP           &kp C_STOP        &kp C_NEXT       &none
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &none         &none          &none            &none             &none             &none              &none            &none             &none              &none             &none            &none
+         &none         &none          &none            &none             &none             cliphist           &none            &none             &none              &none             &none            &none
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
                                                        &trans            &trans            &trans             &trans           &trans            &trans
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
