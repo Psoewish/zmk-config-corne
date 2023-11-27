@@ -21,41 +21,46 @@
 
 /* OS Shortcuts */
 /* Workspaces */
-#define f_ws1                 &kp LA(N1)
-#define f_ws2                 &kp LA(N2)
-#define f_ws3                 &kp LA(N3)
-#define f_ws4                 &kp LA(N4)
-#define f_ws5                 &kp LA(N5)
+/* Focus workspace */
+#define focus1                &kp LA(N1)
+#define focus2                &kp LA(N2)
+#define focus3                &kp LA(N3)
+#define focus4                &kp LA(N4)
+#define focus5                &kp LA(N5)
 
-#define s_ws1                 &kp LA(LS(N1))
-#define s_ws2                 &kp LA(LS(N2))
-#define s_ws3                 &kp LA(LS(N3))
-#define s_ws4                 &kp LA(LS(N4))
-#define s_ws5                 &kp LA(LS(N5))
+/* Swap workspace */
+#define send1                 &kp LA(LS(N1))
+#define send2                 &kp LA(LS(N2))
+#define send3                 &kp LA(LS(N3))
+#define send4                 &kp LA(LS(N4))
+#define send5                 &kp LA(LS(N5))
 
-#define sf_ws1                &kp LA(LC(LS(N1)))
-#define sf_ws2                &kp LA(LC(LS(N2)))
-#define sf_ws3                &kp LA(LC(LS(N3)))
-#define sf_ws4                &kp LA(LC(LS(N4)))
-#define sf_ws5                &kp LA(LC(LS(N5)))
+/* Move window to and swap workspace */
+#define sendfocus1            &kp LA(LC(LS(N1)))
+#define sendfocus2            &kp LA(LC(LS(N2)))
+#define sendfocus3            &kp LA(LC(LS(N3)))
+#define sendfocus4            &kp LA(LC(LS(N4)))
+#define sendfocus5            &kp LA(LC(LS(N5)))
 
 /* Window management */
-#define float                 &kp LA(T)
-#define monocle               &kp LA(LS(F))
-#define maximize              &kp LA(LC(LS(F)))
+#define togfloat                &kp LA(T)
+#define togmonocle              &kp LA(LS(F))
+#define togmaximize             &kp LA(LC(LS(F)))
 
-#define wf_left               &kp LA(LEFT)
-#define wf_down               &kp LA(DOWN)
-#define wf_up                 &kp LA(UP)
-#define wf_right              &kp LA(RIGHT)
+/* Focus window */
+#define focusleft               &kp LA(LEFT)
+#define focusdown               &kp LA(DOWN)
+#define focusup                 &kp LA(UP)
+#define focusright              &kp LA(RIGHT)
 
-#define wm_left               &kp LA(LS(LEFT))
-#define wm_down               &kp LA(LS(DOWN))
-#define wm_up                 &kp LA(LS(UP))
-#define wm_right              &kp LA(LS(RIGHT))
+/* Move window */
+#define moveleft                &kp LA(LS(LEFT))
+#define movedown                &kp LA(LS(DOWN))
+#define moveup                  &kp LA(LS(UP))
+#define moveright               &kp LA(LS(RIGHT))
 
 /* Misc tools */
-#define cliphist              &kp LG(V)
+#define cliphist                &kp LG(V)
 
 /* Keymap */
 / {
@@ -91,11 +96,11 @@
         navigation_layer {
             bindings = <
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
-         &trans        s_ws1          s_ws2            s_ws3             s_ws4             s_ws5              maximize         f_left            f_down             f_up              f_right          &trans
+         &trans        send1          send2            send3             send4             send5              togmaximize      focusleft         focusdown          focusup           focusright       &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &trans        f_ws1          f_ws2            f_ws3             f_ws4             f_ws5              monocle          &kp LEFT          &kp DOWN           &kp UP            &kp RIGHT        &trans
+         &trans        focus1         focus2           focus3            focus4            focus5             togmonocle       &kp LEFT          &kp DOWN           &kp UP            &kp RIGHT        &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &trans        sf_ws1         sf_ws2           sf_ws3            sf_ws4            sf_ws5             float            wm_left           wm_down            wm_up             wm_right         &trans
+         &trans        sendfocus1     sendfocus2       sendfocus3        sendfocus4        sendfocus5         togfloat         moveleft          movedown           moveup            moveright        &trans
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
                                                        &trans            &trans            &trans             &trans           &trans            &trans
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
