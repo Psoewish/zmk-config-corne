@@ -20,7 +20,7 @@
 };
 
 /* OS Shortcuts */
-/* Workspaces - Komorebi on Windows */
+/* Workspaces */
 /* Focus workspace */
 #define focus1                &kp LA(N1)
 #define focus2                &kp LA(N2)
@@ -28,41 +28,54 @@
 #define focus4                &kp LA(N4)
 #define focus5                &kp LA(N5)
 
-/* Swap workspace */
+/* Send to workspace */
 #define send1                 &kp LA(LS(N1))
 #define send2                 &kp LA(LS(N2))
 #define send3                 &kp LA(LS(N3))
 #define send4                 &kp LA(LS(N4))
 #define send5                 &kp LA(LS(N5))
 
-/* Move window to and swap workspace */
+/* Send to and focus workspace */
 #define sendfocus1            &kp LA(LC(LS(N1)))
 #define sendfocus2            &kp LA(LC(LS(N2)))
 #define sendfocus3            &kp LA(LC(LS(N3)))
 #define sendfocus4            &kp LA(LC(LS(N4)))
 #define sendfocus5            &kp LA(LC(LS(N5)))
 
+/* Powertoys layouts */
+/* Focus layouts */
+#define layout1               &kp LG(LC(LA(N1)))
+#define layout2               &kp LG(LC(LA(N2)))
+#define layout3               &kp LG(LC(LA(N3)))
+#define layout4               &kp LG(LC(LA(N4)))
+/* Split layouts */
+#define layout6               &kp LG(LC(LA(N6)))
+#define layout7               &kp LG(LC(LA(N7)))
+#define layout8               &kp LG(LC(LA(N8)))
+#define layout9               &kp LG(LC(LA(N9)))
+
 /* Window management */
-#define togfloat                &kp LA(T)
-#define togmonocle              &kp LA(LS(F))
-#define togmaximize             &kp LA(LC(LS(F)))
+#define togfloat              &kp LG(LC(T))
+#define togmonocle            &kp LA()
+#define togmaximize           &kp LA(LC(LS(F)))
 
 /* Focus window */
-#define focusleft               &kp LA(LEFT)
-#define focusdown               &kp LA(DOWN)
-#define focusup                 &kp LA(UP)
-#define focusright              &kp LA(RIGHT)
+#define focusleft             &kp LA(LEFT)
+#define focusdown             &kp LA(DOWN)
+#define focusup               &kp LA(UP)
+#define focusright            &kp LA(RIGHT)
 
 /* Move window */
-#define moveleft                &kp LA(LS(LEFT))
-#define movedown                &kp LA(LS(DOWN))
-#define moveup                  &kp LA(LS(UP))
-#define moveright               &kp LA(LS(RIGHT))
+#define moveleft              &kp LA(LS(LEFT))
+#define movedown              &kp LA(LS(DOWN))
+#define moveup                &kp LA(LS(UP))
+#define moveright             &kp LA(LS(RIGHT))
 
 /* Misc tools */
-#define cliphist                &kp LG(V)
-// SoundSwitch app for Windows
-#define swapaudio              &kp LA(LS(F11))
+#define cliphist              &kp LG(V)
+#define pin                   &kp LG(LC(T))
+// Mute monitor AHK script
+#define swapaudio             &kp LA(LS(F11))
 
 /* Keymap */
 / {
@@ -74,11 +87,11 @@
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
          &kp ESC       &kp Q          &kp W            &kp F             &kp P             &kp B              &kp J            &kp L             &kp U              &kp Y             &kp SEMI         &kp DEL
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &none         &hml LGUI A    &hml LALT R      &hml LCTL S       &hml LSFT T       &kp G              &kp M            &hmr RSFT N       &hmr RCTL E        &hmr LALT I       &hmr RGUI O      &kp APOS
+         &kp TAB       &kp A          &kp R            &hkp S            &kp T             &kp G              &kp M            &kp N             &kp E              &kp I             &kp O            &kp APOS
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &smart_shift  &kp Z          &kp X            &kp C             &kp D             &kp V              &kp K            &kp H             &kp COMMA          &kp PERIOD        &kp FSLH         &smart_shift
+         &kp LCTRL     &kp Z          &kp X            &kp C             &kp D             &kp V              &kp K            &kp H             &kp COMMA          &kp PERIOD        &kp FSLH         &none
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
-                                                       &none             &lt SYM BSPC      &kp TAB            &kp RETURN       &lt NAV SPACE     &none
+                                                       &kp LALT          &lt SYM BSPC      &smart_shift       &kp RETURN       &lt NAV SPACE     &kp LGUI
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
             >;
         };
@@ -102,7 +115,7 @@
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
          &trans        focus1         focus2           focus3            focus4            focus5             togmonocle       &kp LEFT          &kp DOWN           &kp UP            &kp RIGHT        &trans
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &trans        sendfocus1     sendfocus2       sendfocus3        sendfocus4        sendfocus5         togfloat         moveleft          movedown           moveup            moveright        &trans
+         &trans        sendfocus6     sendfocus7       sendfocus8        sendfocus9        sendfocus0         togfloat         moveleft          movedown           moveup            moveright        &trans
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
                                                        &trans            &trans            &trans             &trans           &trans            &trans
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
@@ -113,9 +126,9 @@
      /*╔═════════════╦══════════════╦════════════════╦═════════════════╦═════════════════╦══════════════╕   ╒════════════════╦═════════════════╦══════════════════╦═════════════════╦════════════════╦═════════════╗*/
          &kp F1        &kp F2         &kp F3           &kp F4            &kp F5            &kp F6             &kp F7           &kp F8            &kp F9             &kp F10           &kp F11          &kp F12
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &none         &kp END        &kp PG_UP        &kp PG_DN         &kp HOME          &kp PSCRN          swapaudio        &kp C_PREV        &kp C_PP           &kp C_STOP        &kp C_NEXT       &none
+         &none         layout1        layout2          layout3           layout4           &kp PSCRN          swapaudio        &kp C_PREV        &kp C_PP           &kp C_STOP        &kp C_NEXT       &none
      /*╠═════════════╬══════════════╬════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╬════════════════╬═════════════╣*/
-         &none         &none          &none            &none             &none             cliphist           &none            &none             &none              &none             &none            &none
+         &none         layout6        layout7          layout8           layout9           cliphist           pin              &kp END           &kp PG_UP          &kp PG_DN         &kp HOME         &none
      /*╚═════════════╩══════════════╩════════════════╬═════════════════╬═════════════════╬══════════════╡   ╞════════════════╬═════════════════╬══════════════════╬═════════════════╩════════════════╩═════════════╝*/
                                                        &trans            &trans            &trans             &trans           &trans            &trans
      /*                                              ╚═════════════════╩═════════════════╩══════════════╛   ╘════════════════╩═════════════════╩══════════════════╝*/
